@@ -132,12 +132,12 @@ jobs:
           echo "FILE_BASE=$FILE_BASE" >> $GITHUB_ENV
 
           echo "🌐 拉取 OnePlus Manifest 分支列表..."
-          BRANCHES=$(curl -s https://api.github./apicalP/kernel_manifest/branches | jq -r '.[].name')
+          BRANCHES=$(curl -s https://github.com/apicalP/kernel_manifest/branches | jq -r '.[].name')
 
           FOUND=""
           for BRANCH in $BRANCHES; do
-            XML_URL="https://raw.githubuse/apicalP/kernel_manifest/$BRANCH/${FILE}.xml"
-            README_URL="https://raw.githubuse/apicalP/kernel_manifest/$BRANCH/README.md"
+            XML_URL="https://github.com/apicalP/kernel_manifest/$BRANCH/${FILE}.xml"
+            README_URL="https://github.com/apicalP/kernel_manifest/$BRANCH/README.md"
             if curl -sf --head "$XML_URL" > /dev/null; then
               echo "✅ XML: $BRANCH"
               curl -s -o "$XML_PATH" "$XML_URL"
